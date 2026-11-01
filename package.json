@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-session-tags",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Session tags for DeepSeek Harness: colour a sidebar session title and show its tag label on hover.",
   "type": "module",

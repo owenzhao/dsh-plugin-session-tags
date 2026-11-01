@@ -10,6 +10,8 @@ Coloured tags for DeepSeek Harness sessions.
   custom), deletes them, or adds an empty one.
 - Assignments and definitions persist to `<DSH_HOME>/state/session-tags.json`;
   when the host route is unreachable the browser falls back to `localStorage`.
+- Every window and device follows the host's event stream, so a tag set on the
+  phone shows up on the desktop without a reload.
 
 A tag colour is either a palette name (`green`, `amber`, `red`, `blue`, `purple`,
 `gray` — theme tokens, so light/dark follow the app) or an explicit `#rrggbb`.
@@ -34,7 +36,17 @@ GET  /session-tags                                          → { tags, assignme
 POST /session-tags { action: 'assign' }                     → snapshot
 POST /session-tags { action: 'createAndAssign', sessionId, tag } → snapshot
 POST /session-tags { action: 'tags', tags }                 → snapshot
+GET  /session-tags/events                                   → that snapshot as a text/event-stream,
+                                                              pushed again after every mutation
 ```
+
+The stream is what keeps windows and devices together: each accepted mutation is
+written to every open stream. A page holds that stream only while it is visible —
+hiding it closes the connection, showing it opens a new one, and the first frame
+of a new stream is the current snapshot. So a sleeping phone or a hidden window
+keeps nothing alive, and coming back is the catch-up. A client that cannot
+establish a stream at all pulls `/session-tags` on the next reconnect attempt, so
+a stripped stream degrades to slow polling instead of a stale page.
 
 ## Install
 
