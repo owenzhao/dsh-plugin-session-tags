@@ -2,6 +2,8 @@
 
 给 DeepSeek Harness 的会话打彩色标签。
 
+标签是**有名字的一套**：名字和颜色在设置里统一定义，会话标题按标签染色，悬停时显示标签名——不是随手给一条会话涂个颜色，而是一套能跨设备同步的状态标记。
+
 - 侧栏会话行的 `...` 菜单里点 **「标签」**：选中后该会话标题变色，鼠标停在会话上时悬浮卡片显示标签名。
 - 选择框里可以直接新建标签：输入文字 + 选六种预设颜色或任意自定义颜色，点「新建并应用」当场打上。
 - **设置 → 插件 → 会话标签** 里可以改文字、改颜色（预设或自定义）、删除、新增空白标签。
@@ -41,6 +43,14 @@ GET  /session-tags/events                                       → 同一份快
 不会停在旧状态。
 
 ## 安装
+
+桌面版：**插件** → 安装，填包名 `dsh-plugin-session-tags`。网页版：
+
+```sh
+dsh plugin --profile web add dsh-plugin-session-tags@0.2.3
+```
+
+开发时指向本地目录：
 
 ```sh
 plugin_manager install_bundle → /absolute/path/to/dsh-plugin-session-tags

@@ -2,6 +2,11 @@
 
 Coloured tags for DeepSeek Harness sessions.
 
+A tag is a **named** label, not a one-off colour: names and colours are defined
+together in the settings, the session title is tinted by its tag, and the tag's
+name shows on the row's hover card — a status vocabulary that follows you across
+devices, not a stray swatch on one row.
+
 - **Sidebar row menu → 标签** opens a picker; the chosen tag tints that session's
   sidebar title and shows its label on the row's hover card.
 - The same picker creates a tag on the spot: type a name, pick one of six colours
@@ -49,6 +54,15 @@ establish a stream at all pulls `/session-tags` on the next reconnect attempt, s
 a stripped stream degrades to slow polling instead of a stale page.
 
 ## Install
+
+Desktop: **Plugins** → Install, then enter the package name
+`dsh-plugin-session-tags`. On the web profile:
+
+```sh
+dsh plugin --profile web add dsh-plugin-session-tags@0.2.3
+```
+
+While developing, point it at a local directory:
 
 ```sh
 plugin_manager install_bundle → /absolute/path/to/dsh-plugin-session-tags

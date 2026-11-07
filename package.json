@@ -1,7 +1,6 @@
 {
   "name": "dsh-plugin-session-tags",
   "version": "0.2.3",
-  "private": true,
   "description": "Session tags for DeepSeek Harness: colour a sidebar session title and show its tag label on hover.",
   "type": "module",
   "main": "lib/index.js",
@@ -21,7 +20,27 @@
     "README.zh.md",
     "LICENSE"
   ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "session",
+    "tags",
+    "sidebar"
+  ],
   "license": "MIT",
+  "engines": {
+    "dsh": ">=0.2.2-rc.1"
+  },
+  "author": "Zhao Xin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owenzhao/dsh-plugin-session-tags.git"
+  },
+  "homepage": "https://github.com/owenzhao/dsh-plugin-session-tags#readme",
+  "bugs": {
+    "url": "https://github.com/owenzhao/dsh-plugin-session-tags/issues"
+  },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
